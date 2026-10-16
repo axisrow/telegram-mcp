@@ -343,9 +343,7 @@ async def get_participants(
         for p in participants:
             rec = {
                 "id": p.id,
-                "name": sanitize_name(
-                    f"{getattr(p, 'first_name', '')} {getattr(p, 'last_name', '')}".strip()
-                ),
+                "name": sanitize_name(person_name(p)),
             }
             uname = getattr(p, "username", None)
             if uname:
@@ -1144,9 +1142,7 @@ async def get_admins(chat_id: Union[int, str], account: Optional[str] = None) ->
         for p in participants:
             rec = {
                 "id": p.id,
-                "name": sanitize_name(
-                    f"{getattr(p, 'first_name', '')} {getattr(p, 'last_name', '')}".strip()
-                ),
+                "name": sanitize_name(person_name(p)),
             }
             uname = getattr(p, "username", None)
             if uname:
@@ -1252,9 +1248,7 @@ async def get_banned_users(chat_id: Union[int, str], account: Optional[str] = No
         for p in participants:
             rec = {
                 "id": p.id,
-                "name": sanitize_name(
-                    f"{getattr(p, 'first_name', '')} {getattr(p, 'last_name', '')}".strip()
-                ),
+                "name": sanitize_name(person_name(p)),
             }
             uname = getattr(p, "username", None)
             if uname:
